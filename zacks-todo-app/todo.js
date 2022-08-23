@@ -5,11 +5,40 @@ const todos = [
     {text: 'a completed todo', completed: true}
 ]
 
-for (const todo of todos) {
+
+window.onload = createTodoList
+
+
+function createTodoElement(todo) {
     const newElementForTodo = document.createElement('li')
     newElementForTodo.innerText = todo.text
+    todo.element = newElementForTodo
+    setTodoClasses(todo)
+    addTodoClickListener(todo)
+    return newElementForTodo
+}
+
+function createTodoList() {
+    todos.forEach(todo => {
+        todoList.appendChild(createTodoElement(todo))
+    })
+}
+
+function updateCompleteStatus(todo) {
+    todo.completed = !todo.completed
+    setTodoClasses(todo)
+}
+
+function setTodoClasses(todo) {
     if (todo.completed) {
-        newElementForTodo.classList.add('completed')
+        todo.element.classList.add('completed')
+    } else {
+        todo.element.classList.remove('completed')
     }
-    todoList.appendChild(newElementForTodo)
+}
+
+function addTodoClickListener(todo) {
+    todo.element.addEventListener('click', () => {
+        updateCompleteStatus(todo)
+    })
 }
