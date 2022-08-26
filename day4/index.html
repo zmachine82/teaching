@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HamsterBooks-don't-suck</title>
+    <link rel="stylesheet" href="stylesheet.css"> 
+</head>
+
+
+<body>
+    <div class="header">
+        <h1>Hamster Books</h1>
+        <p>Where the cool kids find hamster books</p>
+        <p1>by Zamis and the kids of zackscodingcenterforkidswhocantcodegood-andwanttolearntodootherthingsgoodtoo</p1>
+    </div>  
+    
+    <div class = 'bookListContainer'>
+        
+    </div>
+
+    
+    <script>
+        const bookContainer = document.querySelector(".bookListContainer");
+
+
+        const hamsterBooks = [
+            {title: 'Memoirs of a Hamster',
+             author: 'Devin Scillian',
+             imageURL:   'https://bookroo.com/_next/image?url=https%3A%2F%2Fimages.bookroo.com%2Fbooks%2Fmemoirs-of-a-hamster.jpg%3Fv%3D2&w=640&q=75'
+            },
+            {title: 'Hot Rod Hamster',
+             author: 'Cynthia Lord',
+             imageURL: 'https://images-na.ssl-images-amazon.com/images/I/61ejsHsdAsL._AC_UL600_SR600,600_.jpg'
+            }]
+            hamsterBooks.forEach(book => {
+                const newBookEntry = document.createElement('div');
+                
+                const entryImage = document.createElement('img');
+                entryImage.src = book.imageURL
+
+                const entryTitle = document.createElement('p');
+                entryTitle.innerText = book.title // + " by " + book.author; 
+                
+                const entryAuthor = document.createElement('p');
+                entryAuthor.innerText = book.author
+                
+               
+                newBookEntry.classList.add('book-entry')
+                // newBookEntry.innerText = book.title + " by " + book.author; 
+                
+                newBookEntry.appendChild(entryImage);
+                newBookEntry.appendChild(entryTitle);
+                newBookEntry.appendChild(entryAuthor);
+
+
+                bookContainer.appendChild(newBookEntry);
+            })
+
+
+    
+        
+        
+        
+
+        console.log(hamsterBooks);
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+<!-- <h1>Zamis and the Hamster Coding Factory</h1>
+      
+<form>
+    <div class="form-group">
+        <label for="search">Search</label>
+        <input type="text" class="form-control" name="Search"></div>
+</form> --> 
