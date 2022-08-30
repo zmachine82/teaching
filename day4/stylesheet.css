@@ -27,8 +27,16 @@ p1 {
 
 .book-entry {
     margin: 32px;
+    display: flex;
 }
 
 .book-entry span {
     margin-right: 3px;
 }
+
+
+
+/* .hamster-pics {
+    width: (16 * 7)px;
+    height: (9 * 7)px;
+} */
