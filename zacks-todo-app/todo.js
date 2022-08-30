@@ -2,7 +2,7 @@ const todoList = document.querySelector('.todo-list')
 const todoInput = document.querySelector('.new-todo input')
 const addTodoButton = document.querySelector('.new-todo button')
 
-const todos = loadFromStorage().filter(x => x.text)
+let todos = loadFromStorage().filter(x => x.text)
 
 window.onload = createTodoList
 
@@ -52,6 +52,15 @@ function addTodoClickListener(todo) {
         updateCompleteStatus(todo)
         saveToStorage()
     })
+    todo.element.addEventListener('dblclick', () => {
+        removeTodo(todo)
+    })
+}
+
+function removeTodo(todo) {
+    todos = todos.filter(x => x !== todo)
+    todo.element.remove()
+    saveToStorage()
 }
 
 
