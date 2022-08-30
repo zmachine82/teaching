@@ -13,14 +13,15 @@ header h1 {
     margin: 0;
     color: white;
 }
-.container {
+.todo-list {
     margin: 8px;
     display: flex;
-    justify-content: center;
-    height: calc(100vh - 80px);
+    flex-direction: column;
+    align-items: center;
+    height: calc(100vh - 144px);
 }
 
-.container li {
+.todo-list li {
     border: 1px solid black;
     border-radius: 200px;
     width: 200px;
@@ -36,4 +37,21 @@ header h1 {
 .completed {
     text-decoration: line-through;
     background-color: rgba(255, 4, 0, 0.579) !important;
+}
+
+.new-todo {
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-todo input {
+    height: 24px;
+}
+
+.new-todo button {
+    margin-left: 8px;
+    height: 30px;
+    width: 64px;
 }

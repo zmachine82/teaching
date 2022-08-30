@@ -1,12 +1,22 @@
 const todoList = document.querySelector('.todo-list')
+const todoInput = document.querySelector('.new-todo input')
+const addTodoButton = document.querySelector('.new-todo button')
 
-const todos = [
-    {text: 'a nice todo', completed: false},
-    {text: 'a completed todo', completed: true}
-]
-
+const todos = loadFromStorage().filter(x => x.text)
 
 window.onload = createTodoList
+
+addTodoButton.addEventListener('click', () => {
+    if(todoInput.value) {
+        const todo = {
+            text: todoInput.value,
+            completed: false
+        }
+        todoList.appendChild(createTodoElement(todo))
+        todos.push(todo)
+        saveToStorage()
+    }
+})
 
 
 function createTodoElement(todo) {
@@ -40,5 +50,16 @@ function setTodoClasses(todo) {
 function addTodoClickListener(todo) {
     todo.element.addEventListener('click', () => {
         updateCompleteStatus(todo)
+        saveToStorage()
     })
+}
+
+
+function loadFromStorage() {
+    const data = localStorage.getItem('todos') || '[]'
+    return JSON.parse(data) 
+}
+
+function saveToStorage() {
+    localStorage.setItem('todos', JSON.stringify(todos))
 }
