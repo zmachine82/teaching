@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HamsterBooks-don't-suck</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <script src="./helper.js"></script>
 </head>
 
 
@@ -14,15 +15,24 @@
     <div class="header">
         <h1>Hamster Books</h1>
         <p>Where the cool kids find hamster books</p>
-        <p1>by Zamis and the people of zackscodingcenterforkidswhocantcodegood-andwanttolearntodootherthingsgoodtoo</p1>
+        <p1>by Zamis and the people of zackscodingcenterforkidswhocantcodegood-andwanttolearntodothethingsgoodtoo</p1>
     </div>
+    
+
+    <button id="add-button">Add Book</button>
+
+    
+ 
 
     <div class='bookListContainer'>
+        
 
     </div>
 
 
     <script>
+
+
         const bookContainer = document.querySelector(".bookListContainer");
 
 
@@ -60,6 +70,12 @@
         })
 
 
+        document.querySelector('#add-button').addEventListener('click', () => navigate('./add-book.html'))
+
+
+
+
+
 
 
 
@@ -81,6 +97,8 @@
             const entryTitle = document.createElement('p');
             entryTitle.innerText = book.title;
             return entryTitle
+
+            
         }
 
     </script>

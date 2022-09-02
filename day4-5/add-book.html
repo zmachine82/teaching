@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="./helper.js"></script>
+</head>
+
+<body>
+    <h1>Add a wonderful hamster book here</h1>
+    
+    <button id="home-button">Home</button>
+    
+<div type="form" class="form">
+
+    <label for="add-book-title">Title</label>
+    <input id="add-book-title" type="text" placeholder = "Add Book Title Here">
+        
+    <label for="add-book-author">Author</label>
+    <input id="add-book-author" type="text" placeholder="Book Author">
+
+    <label for="add-book-image">Image URL</label>
+    <input id="add-book-image" type="text"  placeholder="Book Image URL">  
+    
+    <button type="submit" id="submit-button">Submit</button>
+
+
+    
+</div>
+
+
+
+    <script>
+        document.querySelector('#home-button').addEventListener('click', () => navigate('./index.html'))
+        let title = document.querySelector('#add-book-title')
+        let author = document.querySelector("#add-book-author")
+        let image = document.querySelector("#add-book-image")
+        document.querySelector('#submit-button').addEventListener('click', () => {
+            let newBook = {
+                title: title.value,
+                author: author.value,
+                imageURL: image.value
+            }
+            console.log(newBook.title)
+            console.log(newBook.author)
+            console.log(newBook.imageURL)
+            console.log(newBook)
+            
+        })
+  
+  </script>
+</body>
+</html>

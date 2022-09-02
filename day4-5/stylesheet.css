@@ -33,9 +33,28 @@ p1 {
 .book-entry span {
     margin-right: 3px;
 }
+button {
+    
+    margin: 8px;
+    border-radius: 15px;
+    background-color: #8AbEB2;
+    cursor: pointer;  
+}
 
 
+#add-button {
+    float: right;
+    font-size: 28px;
+    
+}
+div.form {
+    font-family: Papyrus;
+    font-size: 20px;
 
+}
+#home-button {
+    font-size: 36px;
+}
 /* .hamster-pics {
     width: (16 * 7)px;
     height: (9 * 7)px;
