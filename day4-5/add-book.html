@@ -7,6 +7,7 @@
     <title>Add Book</title>
     <link rel="stylesheet" href="stylesheet.css">
     <script src="./helper.js"></script>
+    
 </head>
 
 <body>
@@ -28,29 +29,8 @@
     <button type="submit" id="submit-button">Submit</button>
 
 
-    
 </div>
 
-
-
-    <script>
-        document.querySelector('#home-button').addEventListener('click', () => navigate('./index.html'))
-        let title = document.querySelector('#add-book-title')
-        let author = document.querySelector("#add-book-author")
-        let image = document.querySelector("#add-book-image")
-        document.querySelector('#submit-button').addEventListener('click', () => {
-            let newBook = {
-                title: title.value,
-                author: author.value,
-                imageURL: image.value
-            }
-            console.log(newBook.title)
-            console.log(newBook.author)
-            console.log(newBook.imageURL)
-            console.log(newBook)
-            
-        })
-  
-  </script>
+<script src="./add-book.js"></script>
 </body>
 </html>

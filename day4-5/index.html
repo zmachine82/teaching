@@ -36,17 +36,7 @@
         const bookContainer = document.querySelector(".bookListContainer");
 
 
-        const hamsterBooks = [
-            {
-                title: 'Memoirs of a Hamster',
-                author: '- Devin Scillian',
-                imageURL: 'https://bookroo.com/_next/image?url=https%3A%2F%2Fimages.bookroo.com%2Fbooks%2Fmemoirs-of-a-hamster.jpg%3Fv%3D2&w=640&q=75'
-            },
-            {
-                title: 'Hot Rod Hamster',
-                author: '- Cynthia Lord',
-                imageURL: 'https://images-na.ssl-images-amazon.com/images/I/61ejsHsdAsL._AC_UL600_SR600,600_.jpg'
-            }]
+        const hamsterBooks = tryToGetBooks()
         hamsterBooks.forEach(book => {
             const newBookEntry = document.createElement('div');
             newBookEntry.classList.add('book-entry')
