@@ -4,7 +4,7 @@ const addTodoButton = document.querySelector('.new-todo button')
 
 let todos = loadFromStorage().filter(x => x.text)
 
-window.onload = createTodoList
+window.onload = createTodoList(todos)
 
 addTodoButton.addEventListener('click', () => {
     if(todoInput.value) {
@@ -14,7 +14,8 @@ addTodoButton.addEventListener('click', () => {
         }
         todoList.appendChild(createTodoElement(todo))
         todos.push(todo)
-        saveToStorage()
+        saveToStorage(todos)
+        todoInput.value = ''
     }
 })
 
@@ -28,8 +29,8 @@ function createTodoElement(todo) {
     return newElementForTodo
 }
 
-function createTodoList() {
-    todos.forEach(todo => {
+function createTodoList(todosToMake) {
+    todosToMake.forEach(todo => {
         todoList.appendChild(createTodoElement(todo))
     })
 }
@@ -37,20 +38,18 @@ function createTodoList() {
 function updateCompleteStatus(todo) {
     todo.completed = !todo.completed
     setTodoClasses(todo)
+    sortTodosCompletedLast()
 }
 
 function setTodoClasses(todo) {
-    if (todo.completed) {
-        todo.element.classList.add('completed')
-    } else {
-        todo.element.classList.remove('completed')
-    }
+    todo.completed ? todo.element.classList.add('completed') : todo.element.classList.remove('completed')
 }
 
 function addTodoClickListener(todo) {
     todo.element.addEventListener('click', () => {
         updateCompleteStatus(todo)
-        saveToStorage()
+        saveToStorage(todos)
+       
     })
     todo.element.addEventListener('dblclick', () => {
         removeTodo(todo)
@@ -60,15 +59,14 @@ function addTodoClickListener(todo) {
 function removeTodo(todo) {
     todos = todos.filter(x => x !== todo)
     todo.element.remove()
-    saveToStorage()
+    saveToStorage(todos)
+}
+
+function sortTodosCompletedLast() {
+    todos.sort((a,b) => a.completed - b.completed)
+    todos.forEach(todo => todo.element.remove())
+    createTodoList(todos)
+    saveToStorage(todos)
 }
 
 
-function loadFromStorage() {
-    const data = localStorage.getItem('todos') || '[]'
-    return JSON.parse(data) 
-}
-
-function saveToStorage() {
-    localStorage.setItem('todos', JSON.stringify(todos))
-}
