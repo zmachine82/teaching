@@ -34,9 +34,9 @@
 
 
         const bookContainer = document.querySelector(".bookListContainer");
+        const booklist = new BookList()
 
-
-        const hamsterBooks = tryToGetBooks()
+        const hamsterBooks = booklist.tryToGetBooks();
         hamsterBooks.forEach(book => {
             const newBookEntry = document.createElement('div');
             newBookEntry.classList.add('book-entry')

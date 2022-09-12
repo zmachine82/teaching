@@ -2,23 +2,37 @@ function navigate(url) {
     location.href = url
 }
 
-function addNewBook(book) {
-    const books = tryToGetBooks()
-    console.log(books)
-    books.push(book)
+class BookList {
 
-    localStorage.setItem('books', JSON.stringify(books))
-}
-
-function tryToGetBooks() {
-    try {
-        return JSON.parse(localStorage.getItem('books')) || []
-    } catch(e) {
-        console.error('oopsie', e)
-        return []
+    addNewBook(book) {
+        const books = this.tryToGetBooks()
+        console.log(books)
+        books.push(book)
+        
+        localStorage.setItem('books', JSON.stringify(books))
+    }
+    
+    tryToGetBooks() {
+        try {
+            return JSON.parse(localStorage.getItem('books')) || []
+        } catch(e) {
+            console.error('oopsie', e)
+            return []
+        }
     }
 }
 
+class Book {
+    title;
+    author;
+    url;
+
+    constructor(title, author, url) {
+        this.title = title
+        this.author = author
+        this.url = url
+    }
+}
 
 
 
