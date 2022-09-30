@@ -1,6 +1,6 @@
-export type Book = {
-  title: string;
-  author: string;
-  imageUrl: string;
+export class Book {
+  title!: string;
+  author!: string;
+  imageUrl!: string;
 }
 
