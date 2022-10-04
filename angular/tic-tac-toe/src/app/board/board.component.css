@@ -1,0 +1,14 @@
+app-square {
+
+    height: 64px;
+    width: 64px;
+
+
+}
+
+
+div {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+}

@@ -1,0 +1,5 @@
+<h3 *ngIf="!game.isGameOver">Current Player is {{game.currentPlayer}}</h3>
+<h3 *ngIf="game.isGameOver">{{game.currentPlayer}} won!!!!!!</h3>
+<div style="height: 64px; width: 250px;display: grid;">
+  <app-square [value]="squareData" *ngFor="let squareData of game.squares; let i = index;" (click)="game.playMove(i)"></app-square>
+</div>
