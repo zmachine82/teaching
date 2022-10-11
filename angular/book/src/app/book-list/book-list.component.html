@@ -1,8 +1,8 @@
 
 
 <mat-grid-list cols="5"  >
-  <mat-grid-tile *ngFor="let book of books" style="width: 100%;">
-    <app-book [book]="book"></app-book>
+  <mat-grid-tile *ngFor="let book of bookService.books" style="width: 100%;">
+    <app-book [book]="book" [routerLink]="['/book', book.id]"></app-book>
   </mat-grid-tile>
 
 </mat-grid-list>

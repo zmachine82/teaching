@@ -8,15 +8,20 @@ import { HeaderComponent } from './header/header.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatButtonModule} from '@angular/material/button';
 import { BookComponent } from './book/book.component';
 import { BookListComponent } from './book-list/book-list.component';
+import { BookDetailComponent } from './book-detail/book-detail.component';
+import { AddBookComponent } from './add-book/add-book.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     BookComponent,
-    BookListComponent
+    BookListComponent,
+    BookDetailComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +29,8 @@ import { BookListComponent } from './book-list/book-list.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

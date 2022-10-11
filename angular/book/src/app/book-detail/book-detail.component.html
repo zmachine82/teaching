@@ -1,0 +1,11 @@
+<div class="sub-nav">
+  <button mat-flat-button color="accent" routerLink="/books"> Back to all books!</button>
+</div>
+
+<div class="container" *ngIf="book">
+  <app-book [book]="book"></app-book>
+  <h3>{{book.description}}</h3>
+</div>
+<div class="container" *ngIf="!book">
+  Book not found
+</div>

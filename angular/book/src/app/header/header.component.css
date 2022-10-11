@@ -1,0 +1,20 @@
+.title {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.links {
+  font-size: medium;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}

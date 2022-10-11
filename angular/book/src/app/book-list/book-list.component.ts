@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookService } from '../book.service';
 import { Book } from '../models/book';
 
 @Component({
@@ -8,17 +9,9 @@ import { Book } from '../models/book';
 })
 export class BookListComponent implements OnInit {
 
-  books: Book[] = [  {
-    title: "Hamster'z life",
-    author: 'Joe Hamster',
-    imageUrl: 'https://i.ibb.co/HB10BnP/51es-Cek-w-ML.jpg'
-  },   {
-    title: "Hamster'z life 2",
-    author: 'Joe Hamster',
-    imageUrl: 'https://i.ibb.co/HB10BnP/51es-Cek-w-ML.jpg'
-  }]
 
-  constructor() { }
+
+  constructor(public bookService: BookService) { }
 
   ngOnInit(): void {
   }
