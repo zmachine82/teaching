@@ -5,6 +5,8 @@
 <div class="container" *ngIf="book">
   <app-book [book]="book"></app-book>
   <h3>{{book.description}}</h3>
+
+  <button (click)="onDestroy()">Destroy book</button>
 </div>
 <div class="container" *ngIf="!book">
   Book not found

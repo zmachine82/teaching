@@ -1,7 +1,8 @@
-
-
+<input type="text" [(ngModel)]="searchTerm" (input)="onSearch()">
+<!-- <button (click)="onSearch()">SearchByAuthor</button> -->
+<button (click)="clearSearch()">clear</button>
 <mat-grid-list cols="5"  >
-  <mat-grid-tile *ngFor="let book of bookService.books" style="width: 100%;">
+  <mat-grid-tile *ngFor="let book of books" style="width: 100%;">
     <app-book [book]="book" [routerLink]="['/book', book.id]"></app-book>
   </mat-grid-tile>
 

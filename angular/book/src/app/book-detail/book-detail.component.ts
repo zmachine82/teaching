@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from '../book.service';
 import { Book } from '../models/book';
 
@@ -10,14 +10,19 @@ import { Book } from '../models/book';
 })
 export class BookDetailComponent implements OnInit {
 
-  book!: Book | undefined;
+  book!: Book;
 
-  constructor(private route: ActivatedRoute, private bookService: BookService) { }
+  constructor(private route: ActivatedRoute, private bookService: BookService, private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.book = this.bookService.findBookById(+params['bookId'])
     })
+  }
+
+  onDestroy() {
+    this.bookService.deleteById(this.book.id);
+    this.router.navigate(['/books'])
   }
 
 }
