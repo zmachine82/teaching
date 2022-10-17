@@ -25,14 +25,22 @@ export class BookService {
       description: "wow a nice game"
     },   {
       id: 2,
-      title: "Hamster'z life 2",
+      title: "Hammies in Da Hood",
       author: 'Steve',
-      imageUrl: 'https://i.ibb.co/HB10BnP/51es-Cek-w-ML.jpg',
-      description: 'another nice game'
+      imageUrl: 'https://ih1.redbubble.net/image.2340762387.3371/st,small,507x507-pad,600x600,f8f8f8.jpg',
+      description: 'Hamsterws find themselves in the middle of a gang war'
+
+
+
     }])
   }
   filterByAuthor(author: string) {
     return this.books$.getValue().filter(book => book.author === author)
+  }
+
+  addBook(newBook: Book) {
+    newBook.id = this.books$.getValue().length + 1
+    this.books$.next([...this.books$.getValue(), newBook])
   }
 
 

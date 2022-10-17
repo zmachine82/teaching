@@ -1,1 +1,24 @@
-<p>add-book works!</p>
+<form [formGroup]="formGroup" class="form" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Author</mat-label>
+    <input matInput formControlName="author">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>imageUrl</mat-label>
+    <input matInput formControlName="imageUrl">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Description ({{ this.formGroup.get('description')?.value.length}}/{{this.requiredLength}})</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+  </mat-form-field>
+
+
+  <button type="submit" [disabled]="formGroup.invalid">Submit</button>
+</form>
