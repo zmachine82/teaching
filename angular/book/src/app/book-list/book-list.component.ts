@@ -10,19 +10,17 @@ import { Book } from '../models/book';
 })
 export class BookListComponent implements OnInit {
 
-  books: Book[] = [];
+
   searchTerm = '';
   constructor(public bookService: BookService) { }
 
   ngOnInit(): void {
-    this.bookService.books$.subscribe(books => {
-      this.books = books
-    })
+
 
   }
 
   onSearch() {
-    this.books = this.bookService.filterByAuthor(this.searchTerm);
+    this.bookService.filterByAuthor(this.searchTerm);
   }
 
   clearSearch() {

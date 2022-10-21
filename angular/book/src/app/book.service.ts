@@ -6,6 +6,7 @@ import { Book } from './models/book';
   providedIn: 'root'
 })
 export class BookService {
+  bookCache: Book[] = [];
 
   books$: BehaviorSubject<Book[]> = new BehaviorSubject<Book[]>([]);
   filteredAuthor = ''
@@ -13,29 +14,38 @@ export class BookService {
   constructor() {
     setTimeout(() => {
       this.loadBooks()
-    }, 3000)
+    }, 1000)
   }
 
   loadBooks() {
-    this.books$.next([  {
+    this.books$.next([{
       id: 1,
       title: "Hamster'z life",
       author: 'Joe',
       imageUrl: 'https://i.ibb.co/HB10BnP/51es-Cek-w-ML.jpg',
-      description: "wow a nice game"
-    },   {
+      description: "Wow a nice game"
+    }, {
       id: 2,
       title: "Hammies in Da Hood",
       author: 'Steve',
       imageUrl: 'https://ih1.redbubble.net/image.2340762387.3371/st,small,507x507-pad,600x600,f8f8f8.jpg',
-      description: 'Hamsterws find themselves in the middle of a gang war'
-
-
+      description: 'Hamsters find themselves in the middle of a gang war'
 
     }])
+
+    this.bookCache = this.books$.getValue();
   }
-  filterByAuthor(author: string) {
-    return this.books$.getValue().filter(book => book.author === author)
+  filterByAuthor(searchterm: string) {
+    if (!searchterm) {
+      this.books$.next(this.bookCache)
+    } else {
+      const filteredBooks = this.bookCache.filter(book =>
+        book.author.toUpperCase().includes(searchterm.toUpperCase().trim()) ||
+        book.title.toUpperCase().includes(searchterm.toUpperCase().trim())
+      )
+
+      this.books$.next(filteredBooks)
+    }
   }
 
   addBook(newBook: Book) {

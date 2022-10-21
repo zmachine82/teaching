@@ -16,6 +16,7 @@ import { BookListComponent } from './book-list/book-list.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { AddBookComponent } from './add-book/add-book.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EmojiPipe } from './emoji.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BookComponent,
     BookListComponent,
     BookDetailComponent,
-    AddBookComponent
+    AddBookComponent,
+    EmojiPipe
   ],
   imports: [
     BrowserModule,
