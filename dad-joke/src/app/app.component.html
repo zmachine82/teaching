@@ -1,0 +1,12 @@
+<button (click)="getRandomJoke()">get a new joke</button>
+
+<div>
+
+  <button (click)="markJokeAsFavorite()">favorite</button>
+  {{joke.joke }}
+</div>
+
+
+<ul>
+  <li *ngFor="let id of favoriteJokes"> <a href="#" (click)="getJokeById(id)">{{id}}</a></li>
+</ul>
